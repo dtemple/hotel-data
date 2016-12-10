@@ -69,9 +69,10 @@ def index():
     template = 'index.html'
     object_list = get_csv()
     #object_list = manipulate(csv_front)
-    return render_template(template, tables=[object_list.to_html()],titles=['Data'])
+    return render_template(template, tables=[object_list.to_html(classes='bluestyle')],titles=['Data'])
 
-# TODO Sort the file by total_guests ascending = False
+# Example for pandas to html https://sarahleejane.github.io/learning/python/2015/08/09/simple-tables-in-webapps-using-flask-and-pandas-with-python.html
+
 # TODO Add CSS
 # TODO Get the data more efficiently (either through the API or via upload)
 # TODO Add the emails by searching for the tags
