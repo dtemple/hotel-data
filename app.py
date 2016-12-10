@@ -57,6 +57,7 @@ def get_csv():
 
     # Merge
     master = pd.merge(master, guest, left_index=True, right_index=True)
+    master.sort_values('total_guests', ascending=False, inplace=True)
 
     #csv_file = open(csv_path, 'r')
     #csv_obj = csv.DictReader(csv_file)
@@ -69,6 +70,11 @@ def index():
     object_list = get_csv()
     #object_list = manipulate(csv_front)
     return render_template(template, tables=[object_list.to_html()],titles=['Data'])
+
+# TODO Sort the file by total_guests ascending = False
+# TODO Add CSS
+# TODO Get the data more efficiently (either through the API or via upload)
+# TODO Add the emails by searching for the tags
 
 
 if __name__ == '__main__':
